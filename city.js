@@ -1,12 +1,24 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const citySchema = mongoose.Schema({
+  name: {
+    type: String,
+    requiere: true,
+    unique: true,
+  },
+  country: {
+    type: String,
+    requiere: true,
+  },
+  img: {
+    type: String,
+  }
+}
 
-var blogSchema = new Schema({
-  title:  String,
-  author: String,
-  body:   String,
+)
+
+
  
   
-}); {coleccion: "ciudades"}
+// }); {coleccion: "ciudades"}
 
-const Ciudad = mongoose.model("Ciudad", Schema);
+module.exports  = mongoose.model("Ciudades", citySchema);
