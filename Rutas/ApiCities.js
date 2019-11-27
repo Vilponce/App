@@ -14,4 +14,29 @@ router.get('/cities/all',
             .catch(err => console.log(err));
     });
 
+    router.post('/cities/all', (req, res) => {
+        
+        
+        cityModel.find(req.body)
+            .then(file => {
+                if(file.length) {
+                    res.json({success: false})
+                } else{ 
+                    const newCity = new cityModel({
+                        name: req.body.name,
+                        country: req.body.country
+                    })
+                    newCity.save() .then(city => {
+                                res.send(city)
+                            })
+                            .catch(err => {
+                                res.status(500).send("Server error")}) 
+                }
+            })
+    });
+    
+    
+    
+    
+    
 module.exports = router;    

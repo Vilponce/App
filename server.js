@@ -13,8 +13,8 @@ app.use(cors())
 
 
 //bodyparsen Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser());
+
 
 
 app.get('/', (req, res) => res.send ('Hello From Express'));
